@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>FinApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <img src="{{ url_for('static', filename='img/forma 1.png') }}" class="decor" alt="decoracao1">
+        <img src="{{ url_for('static', filename='img/Ellipse.png') }}" class="decor1" alt="decoracao2">
+        
+        <div class="login-box">
+            <img class="finappLogo" src="{{ url_for('static', filename='img/finapp logo.png') }}" alt="FINAPP">
+            
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class="flash-messages">
+                  {% for message in messages %}
+                    <li>{{ message }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('login') }}">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Nome de Usuário" required />
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Senha" required />
+                </div>
+                <button type="submit">LOGIN</button>
+                <p style="text-align:center; margin-top: 10px;">
+                    Ainda não tem uma conta? <a href="{{ url_for('cadastro') }}">Cadastre-se</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
