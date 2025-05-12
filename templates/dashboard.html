@@ -1,78 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FinApp - Dashboard</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <title>FinApp - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <div class="dashboard-container">
-    <h1>Bem-vindo ao FinApp!</h1>
-    <div class="section">
-      <h2>Resumo das Finanças</h2>
-      <p>Saldo: R$ 5.000,00</p>
-      <p>Gastos: R$ 2.350,00</p>
-      <div class="section">
-        <h2>Distribuição de Gastos</h2>
-        <canvas id="gastosChart" width="300" height="300"></canvas>
-      </div>
-      
-    </div>
-
-    <div class="section">
-      <h2>Metas e Alertas</h2>
-      <ul>
-        <li>Meta: Economizar R$ 1.000 (70% concluído)</li>
-        <li>Alerta: Gastos acima da média este mês!</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Conteúdo em Destaque</h2>
-      <p>Dica da Semana: Como controlar melhor seus gastos com lazer.</p>
-    </div>
-
-    <div class="section">
-      <h2>IA FinApp</h2>
-      <p>“Você pode atingir sua meta 5 dias antes se cortar 15% dos gastos atuais.”</p>
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const ctx = document.getElementById('gastosChart').getContext('2d');
-  const gastosChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ['Alimentação', 'Transporte', 'Lazer', 'Educação', 'Outros'],
-      datasets: [{
-        data: [800, 500, 400, 300, 350],
-        backgroundColor: [
-          '#ff6384',
-          '#36a2eb',
-          '#ffce56',
-          '#8bc34a',
-          '#9c27b0'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: {
-            color: 'white',
-            font: {
-              size: 12
-            }
-          }
-        }
-      }
-    }
-  });
-</script>
-
+    <img class="dashboard" src="{{ url_for('static', filename='img/dashboard.svg') }}" alt="dashboard">
 </body>
 </html>
